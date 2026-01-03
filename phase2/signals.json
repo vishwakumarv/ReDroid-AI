@@ -1,0 +1,32 @@
+{
+  "app_meta": {
+    "package": "org.fdroid.fdroid",
+    "version": "",
+    "min_sdk": "",
+    "target_sdk": ""
+  },
+  "permissions": {
+    "dangerous": [],
+    "normal": []
+  },
+  "components": {
+    "activities": [],
+    "services": [],
+    "receivers": [],
+    "providers": []
+  },
+  "network": {
+    "urls": [],
+    "domains": [],
+    "ips": []
+  },
+  "code_signals": {
+    "reflection": false,
+    "dynamic_loading": false,
+    "native_libs": []
+  },
+  "strings": {
+    "interesting": []
+  },
+  "notes": []
+}
