@@ -1,3 +1,4 @@
+# Phase 2: Hybrid rule-based + AI reasoning layer (stable)
 # Phase 2: Hybrid AI + Rule-based reasoning layer
 
 import json
