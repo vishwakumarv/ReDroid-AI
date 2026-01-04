@@ -40,7 +40,11 @@ def ai_reason(signals):
         ],
         "limitations": "AI reasoning is based only on provided static signals."
     }
-
+def get_phase2_output(signals):
+    return {
+        "rule_based_analysis": reason_about_app(signals),
+        "ai_reasoning": ai_reason(signals)
+    }
 def main():
     if len(sys.argv) != 2:
         print("Usage: python3 phase2.py signals.json")
@@ -48,29 +52,18 @@ def main():
 
     signals = load_signals(sys.argv[1])
 
-    insights = reason_about_app(signals)
-    ai = ai_reason(signals)
+    phase2_output = get_phase2_output(signals)
 
-    print("=== Phase 2: Reasoned Analysis ===")
-    print("Package:", signals["app_meta"]["package"])
+    output = {
+        "package": signals["app_meta"]["package"],
+        "analysis": phase2_output
+    }
 
-    print("\nRule-Based Insights:")
-    for i, line in enumerate(insights, 1):
-        print(f"{i}. {line}")
+    with open("phase2_output.json", "w") as f:
+        json.dump(output, f, indent=2)
 
-    print("\nAI Summary:")
-    print(ai["summary"])
+    print("[+] Phase 2 output written to phase2_output.json")
 
-    print("\nAI Key Behaviors:")
-    for b in ai["key_behaviors"]:
-        print("-", b)
-
-    print("\nAI Suggested Focus Areas:")
-    for f in ai["focus_areas"]:
-        print("-", f)
-
-    print("\nLimitations:")
-    print("-", ai["limitations"])
 
 if __name__ == "__main__":
     main()

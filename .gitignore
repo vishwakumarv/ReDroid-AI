@@ -1,4 +1,4 @@
-# Python
+# Python cache
 __pycache__/
 *.pyc
 
@@ -8,9 +8,14 @@ venv/
 # APK files
 *.apk
 
-# Analyzer outputs
+# Analyzer outputs / work dirs
 output.json
 workspace/
 
-# IDE files
+# Generated analysis outputs
+analysis_report.pdf
+analysis_report.txt
+phase2_output.json
+
+# IDE / editor files
 .vscode/
