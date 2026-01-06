@@ -8,119 +8,168 @@
 
 # ReDroid-AI
 
-**ReDroid-AI** is an AI-assisted reverse engineering system designed to help security analysts understand unknown software faster by automatically extracting meaningful code patterns and generating human-readable explanations of program behavior.
+AI-assisted **Reverse Engineering Assistant** — built to help analysts understand complex software faster by explaining behavior clearly and generating structured reports.
 
-The project focuses on **explainability**, **structured reasoning**, and **human-in-the-loop analysis**, rather than automated classification or verdicts.
+ReDroid-AI is not an “APK analyzer.”
+It is a focused AI assistant for reverse engineers — designed to save time, reduce confusion, and make documentation painless.
 
----
+ReDroid augments analysts by:
+	•	explaining confusing code and behavior
+	•	highlighting important parts of programs
+	•	helping structure findings into readable reports
 
-## 🎯 Project Aim
+Not magic. Not automation hype.
+Just a tool that makes real RE work faster.
 
-The aim of ReDroid-AI is to **design and develop an AI-assisted reverse engineering system that helps security analysts understand unknown software faster** by:
+⸻
 
-- Automatically extracting meaningful static code and metadata patterns  
-- Correlating low-level signals into higher-level behavioral insights  
-- Generating clear, human-readable explanations of program behavior  
+🎯 Goal
 
-ReDroid-AI is intended to **augment human analysts**, not replace them.
+Help reverse engineers understand software faster — and document it without pain.
 
----
+The first milestone of ReDroid-AI focuses on:
+	•	Paste → Understand → Auto-Report
+	•	users paste snippets, functions, logs, or RE artifacts
+	•	ReDroid explains what’s happening
+	•	produces a structured draft report analysts can edit and use
 
-## 🔍 What ReDroid-AI Does
+Everything else builds on top of that core workflow.
 
-- Performs **static analysis** on Android APKs (no execution required)
-- Extracts structured signals from:
-  - Android manifests
-  - Permissions
-  - Decompiled bytecode
-  - Resources and metadata
-- Applies **rule-based reasoning** over extracted signals
-- Produces **explainable, analyst-friendly reports**
-- Lays the groundwork for future **LLM-assisted reasoning**
+⸻
 
----
+🔍 What ReDroid-AI Does (Current Focus)
+	•	Accepts RE artifacts (code, snippets, smali, logic excerpts, notes, logs)
+	•	Helps explain intent and behavior clearly
+	•	Surfaces likely interesting areas (risk-relevant or suspicious patterns)
+	•	Generates human-readable, structured analysis drafts
 
-## 🚫 What ReDroid-AI Does NOT Do
+ReDroid is built around explainability first, not automation gimmicks.
 
-- Does **not** execute, emulate, or sandbox applications
-- Does **not** label apps as malware or benign
-- Does **not** claim detection accuracy or security guarantees
-- Does **not** replace expert human judgment
+⸻
 
----
+🚫 What ReDroid-AI Is NOT
 
-## 🧠 High-Level Analysis Pipeline
+ReDroid does not:
+	•	try to “detect malware”
+	•	automatically sandbox / emulate apps
+	•	replace human judgment
+	•	claim accuracy guarantees
+	•	aim to become another MobSF-style static scanner
 
-1. APK unpacking and decoding  
-2. Static signal extraction  
-3. Rule-based reasoning over signals  
-4. AI-assisted explanation generation  
-5. Human-readable analysis output  
+If you want a detector — use a detector.
+ReDroid is a thinking assistant.
 
----
+⸻
 
-## 🗂 Repository Structure (Overview)
+🧠 Core Philosophy
 
-The repository is organized by analysis phase and responsibility:
+ReDroid is a reasoning assistant — not a verdict engine.
 
-- **analyzers/**  
-  Phase 1 — static analysis and signal extraction
+It helps you understand why something behaves the way it does —
+so you make better decisions faster.
 
-- **phase2/**  
-  Phase 2 — hybrid rule-based and AI-assisted reasoning layer
+⸻
 
-- **utils/**  
-  Shared helper functions and utilities
+📦 Current Status (Honest)
 
-- **redroid/**  
-  Core package and orchestration logic
+ReDroid-AI is in MVP development:
 
-- **README.md**  
-  Project documentation
+✅ Implemented / In Progress
+	•	foundation for explanation engine
+	•	structured report generation concepts
+	•	early static extraction helpers
+	•	initial reasoning logic
 
-- **requirements.txt**  
-  Python dependencies
+❌ Not built yet (by design — planned next)
+	•	full chat UI
+	•	deep static automation
+	•	dynamic trace integration
+	•	guided Frida runtime tooling
 
----
+We’re building from clarity outward, not feature-dumping everything at once.
 
-## 🚧 Current Status
+⸻
 
-The project is in **early-stage development**.
+🛣 Roadmap (Locked Strategy)
 
-Completed so far:
-- APK unpacking and decoding
-- Initial static signal extraction
-- Phase 2 hybrid reasoning layer (rule-based + AI stub)
-- Structured, explainable analysis output
+ReDroid follows a deliberate staged roadmap:
 
----
+1️⃣ MVP — Paste → Understand → Auto-Report (current build)
+	•	user pastes code/snippets/logs
+	•	ReDroid explains behavior
+	•	generates structured draft report
 
-## 🛣 Roadmap (v1.0)
+👉 Goal: save analysts time immediately.
 
-Planned milestones include:
+⸻
 
-- Expanded static signal coverage
-- Deeper bytecode and control-flow analysis
-- Improved reasoning rules
-- Integration of LLM-based reasoning modules
-- Richer explanation and reporting formats
+2️⃣ Smart Highlighting
+	•	automatically surface important sections
+	•	explain why they matter (not just highlight)
 
----
+👉 Goal: help analysts navigate faster.
 
-## ⚠ Disclaimer
+⸻
 
-ReDroid-AI is a **research and learning project**.
+3️⃣ Static + Dynamic Fusion
+	•	correlate code with runtime traces/logs
+	•	explain behavior across both
 
-- It does **not** guarantee correctness, completeness, or security outcomes  
-- All analysis results **must be validated by a human analyst**  
-- The system is intended for educational and research use only  
+👉 Goal: connect “what code says” and “what it actually did.”
 
----
+⸻
 
-## 📌 Philosophy
+4️⃣ Guided Runtime Assistance
+	•	suggest safe hooks and tests
+	•	optionally help automate simple runtime checks
 
-> ReDroid-AI is not a detector.  
-> It is a reasoning assistant for humans who reverse engineer software.
+👉 Goal: assist — not break — live analysis workflows.
 
----
+⸻
 
+🧭 Why This Exists
+
+Reverse engineers waste massive time on:
+	•	deciphering unreadable code
+	•	verifying behavior manually
+	•	writing boring reports nobody enjoys
+
+ReDroid focuses on those bottlenecks first.
+
+If it doesn’t measurably save time — it doesn’t ship.
+
+⸻
+
+⚠️ Disclaimer
+
+ReDroid-AI is an early-stage research-driven project.
+It is designed to assist skilled analysts, not replace them.
+	•	Results may be incomplete or require verification
+	•	Always validate critical findings manually
+	•	Intended for learning, research, and professional augmentation
+
+⸻
+
+🤝 Contributing / Feedback
+
+We actively want feedback from:
+	•	RE hobbyists
+	•	malware analysts
+	•	security researchers
+	•	CTF practitioners
+
+If something wastes your time today — tell us.
+ReDroid exists to remove those pain points.
+
+⸻
+
+📌 Summary
+
+ReDroid-AI is a:
+
+✔ specialized AI assistant for reverse engineers
+✔ focused on understanding + reporting first
+✔ intentionally not another generic APK analyzer
+✔ being built incrementally — the right way
+
+If you’re here early, you’re watching it evolve from tool idea → working assistant.
